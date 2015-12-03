@@ -56,6 +56,12 @@ namespace Vesisuontie
 
             services.AddMvc();
 
+            services.AddSignalR(options =>
+            {
+                options.Hubs.EnableDetailedErrors = true;
+            });
+
+
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
@@ -108,6 +114,8 @@ namespace Vesisuontie
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSignalR();
         }
 
         // Entry point for the application.
