@@ -35,15 +35,15 @@ namespace Vesisuontie.Controllers
 
 
 
-        //// GET: api/values
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
+        // GET: api/values
         [HttpGet]
-        public void GetTurnLamp([FromQuery]bool turnOn)
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        [HttpGet("TurnLamp")]
+        public void TurnLamp([FromQuery]bool turnOn)
         {
             _lampHub.Clients.All.Turn(turnOn);
         }

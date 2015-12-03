@@ -33,9 +33,20 @@ namespace WindowsFormsClient
             await hubconnection.Start(new LongPollingTransport());
         }
 
-        private void handleCallback(bool obj)
+        private void handleCallback(bool state)
         {
-            
+            SetStatus(state);
         }
+
+        private void SetStatus(bool state)
+        {
+            if (button1.InvokeRequired)
+            {
+                button1.Invoke(new Action<bool>(SetStatus), state);
+            }
+
+            button1.Text = state.ToString();
+        }
+
     }
 }
