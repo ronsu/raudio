@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("mytestApp",["mytestService"])}(),function(){"use strict";angular.module("mytestApp",["mytestService"])}(),function(){"use strict";function a(a){function b(){}a.title="controller",b()}angular.module("app").controller("controller",a),a.$inject=["$scope"]}();
