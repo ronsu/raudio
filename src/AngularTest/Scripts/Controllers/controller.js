@@ -1,17 +1,12 @@
 ﻿(function () {
     'use strict';
-
     angular
-        .module('mytestApp')
-        .controller('mytestController', controller);
+    .module('mytestApp')
+    .controller('mytestController', mytestController)
 
-    controller.$inject = ['$scope']; 
-
-    function controller($scope) {
-        $scope.title = 'controller';
-
-        activate();
-
-        function activate() { }
+    mytestController.$inject = ['$scope', 'TestModels'];
+    function mytestController($scope, TestModels) {
+        $scope.testmodel = TestModels.query();
     }
+
 })();

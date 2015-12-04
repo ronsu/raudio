@@ -1,19 +1,36 @@
-﻿(function () {
+﻿
+
+(function () {
     'use strict';
 
-    angular
-        .module('app')
-        .factory('mytestService', mytestService);
+    var mytestService = angular.module('mytestService', ['ngResource']);
 
-    mytestService.$inject = ['$http'];
+    mytestService.factory('MyTest', ['$resource',
+      function ($resource) {
+          return $resource('/api/mytest/', {}, {
+              query: { method: 'GET', params: {}, isArray: true }
+          });
+      }]);
 
-    function mytestService($http) {
-        var service = {
-            getData: getData
-        };
-
-        return service;
-
-        function getData() { }
-    }
 })();
+
+
+//(function () {
+//    'use strict';
+
+//    angular
+//        .module('app')
+//        .factory('mytestService', mytestService);
+
+//    mytestService.$inject = ['$http'];
+
+//    function mytestService($http) {
+//        var service = {
+//            getData: getData
+//        };
+
+//        return service;
+
+//        function getData() { }
+//    }
+//})();
