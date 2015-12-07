@@ -1,12 +1,14 @@
 ﻿(function () {
     'use strict';
     angular
-    .module('mytestApp')
-    .controller('mytestController', mytestController)
+        .module('mytestApp')
+        .controller('mytestController', mytestController);
 
     mytestController.$inject = ['$scope', 'TestModels'];
     function mytestController($scope, TestModels) {
-        $scope.testmodel = TestModels.query();
+        $scope.TestModels = TestModels.query();
     }
 
 })();
+
+

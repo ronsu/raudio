@@ -5,7 +5,7 @@
 
     var mytestService = angular.module('mytestService', ['ngResource']);
 
-    mytestService.factory('MyTest', ['$resource',
+    mytestService.factory('TestModels', ['$resource',
       function ($resource) {
           return $resource('/api/mytest/', {}, {
               query: { method: 'GET', params: {}, isArray: true }
