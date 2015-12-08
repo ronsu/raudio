@@ -5,7 +5,9 @@
         .controller('mytestController', mytestController);
 
     mytestController.$inject = ['$scope', 'TestModels'];
-    function mytestController($scope, TestModels) {
+
+    function mytestController($scope, TestModels)
+    {
         $scope.TestModels = TestModels.query();
     }
 

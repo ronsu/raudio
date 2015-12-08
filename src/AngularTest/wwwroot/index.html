@@ -11,10 +11,12 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 
+
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="/css/site.css" />
 
 </head>
+
 
 <body ng-cloak>
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -40,6 +42,17 @@
 <div class="container body-content">
     <hr/>
 
+    <div ng-controller="MyCtrl">
+        <button ng-click="toggle()">Toggle</button>
+
+        <p ng-hide="myVar">
+            First Name: <input type="text" ng-model="firstName"><br>
+            Last Name: <input type="text" ng-model="lastName"><br>
+            <br>
+            Full Name: {{firstName + " " + lastName}}
+        </p>
+    </div>
+
     <div ng-controller="mytestController">
         <h1>TestModels</h1>
         <table>
@@ -53,10 +66,13 @@
                 <tr ng-repeat="test in TestModels">
                     <td>{{test.Id}}</td>
                     <td>{{test.Name}}</td>
+                    <!--<td><button ng-click="toggle()">Toggle</button></td>-->
                 </tr>
             </tbody>
         </table>
     </div>
+
+
 
     <footer>
         <p>&copy; 2015 - Raudio</p>
