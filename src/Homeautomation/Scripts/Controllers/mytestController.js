@@ -16,5 +16,6 @@ var mytestApp;
             return MytestController;
         })();
         Controllers.MytestController = MytestController;
+        angular.module("mytestApp").controller("mytestApp.Controllers.mytestController", MytestController);
     })(Controllers = mytestApp.Controllers || (mytestApp.Controllers = {}));
 })(mytestApp || (mytestApp = {}));

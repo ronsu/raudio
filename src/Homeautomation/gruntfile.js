@@ -8,7 +8,7 @@ module.exports = function (grunt) {
  grunt.initConfig({   
       uglify: {   
          my_target: {   
-         files: { 'wwwroot/app.js': ['Scripts/app.js', 'Scripts/**/*.js'] }   
+             files: { 'wwwroot/app.js': ['Scripts/app.module.js', 'Scripts/**/*.js'] }
       }   
 },   
 watch: {   
@@ -18,5 +18,8 @@ watch: {
       }   
    }   
 });   
-   grunt.registerTask('default', ['uglify', 'watch']);   
+ grunt.registerTask('default', [
+     'uglify',
+     'watch'
+ ]);
 };

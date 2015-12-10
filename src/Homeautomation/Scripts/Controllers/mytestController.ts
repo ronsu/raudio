@@ -17,4 +17,7 @@ module mytestApp.Controllers {
         }
 
     }
+
+    angular.module("mytestApp").controller("mytestApp.Controllers.mytestController", MytestController);
+
 }
