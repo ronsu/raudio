@@ -7,10 +7,12 @@
     <title>TestModels</title>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
-    <script src="app.js"></script>
+    <!--<script src="app.js"></script>-->
     <script src="lib/jquery/dist/jquery.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
-
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/controllers/mytestcontroller.js"></script>
+    <script src="scripts/services/testmodelservice.js"></script>
 
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
 
@@ -54,6 +56,7 @@
 
         <div ng-controller="mytestApp.Controllers.mytestController">
             <h1>TestModels</h1>
+            <button ng-click="getTestModels()">Test</button>
             <table>
                 <thead>
                     <tr>
