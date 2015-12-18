@@ -9,28 +9,39 @@ System.register(['angular2/core'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var HeroDetailComponent;
+    var DialogService;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            HeroDetailComponent = (function () {
-                function HeroDetailComponent() {
+            /**
+             * Async modal dialog service
+             * DialogService makes this app easier to test by faking this service.
+             * TODO: better modal implemenation that doesn't use window.confirm
+             */
+            DialogService = (function () {
+                function DialogService() {
                 }
-                HeroDetailComponent = __decorate([
-                    core_1.Component({
-                        selector: 'my-hero-detail',
-                        template: "\n    <div *ngIf=\"hero\">\n      <h2>{{hero.name}} details!</h2>\n      <div><label>id: </label>{{hero.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n  ",
-                        inputs: ['hero']
-                    }), 
+                /**
+                 * Ask user to confirm an action. `message` explains the action and choices.
+                 * Returns promise resolving to `true`=confirm or `false`=cancel
+                 */
+                DialogService.prototype.confirm = function (message) {
+                    return new Promise(function (resolve, reject) {
+                        return resolve(window.confirm(message || 'Is it OK?'));
+                    });
+                };
+                ;
+                DialogService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], HeroDetailComponent);
-                return HeroDetailComponent;
+                ], DialogService);
+                return DialogService;
             })();
-            exports_1("HeroDetailComponent", HeroDetailComponent);
+            exports_1("DialogService", DialogService);
         }
     }
 });
-//# sourceMappingURL=hero-detail.component.js.map
+//# sourceMappingURL=dialog.service.js.map
